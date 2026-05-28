@@ -33,10 +33,21 @@ const PROJECTS = [
   },
 ]
 
+type Project = {
+  num: string
+  name: string
+  category: string
+  tags: string[]
+  desc: string
+  screenshot: string | null
+  slug: string
+  blocks?: { label: string; bg: string }[]
+}
+
 const TOTAL = PROJECTS.length
 
 interface ProjectCardProps {
-  project: (typeof PROJECTS)[0]
+  project: Project
   index: number
   containerProgress: ReturnType<typeof useScroll>['scrollYProgress']
 }
