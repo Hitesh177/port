@@ -81,6 +81,63 @@ export default function WorkExpPage() {
         {/* Jobs */}
         {JOBS.map((job, i) => (
           <div key={i} style={{ borderTop: '1px solid rgba(215,226,234,0.15)', paddingTop: '48px', marginBottom: '56px' }}>
+
+            {/* Pou Chen — special hero banner */}
+            {job.company === 'Pou Chen Corporation' && (
+              <div style={{ marginBottom: '32px' }}>
+                {/* Building banner */}
+                <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', height: '130px' }}>
+                  <img
+                    src="/pou-chen-building.png"
+                    alt="Pou Chen HQ"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  {/* Gradient overlay */}
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%)' }} />
+                  {/* PCC logo over banner */}
+                  <div style={{ position: 'absolute', bottom: '20px', left: '20px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+                    <img
+                      src="/pou-chen-logo.png"
+                      alt="PCC Logo"
+                      style={{ width: '56px', height: '56px', borderRadius: '50%', border: '2px solid rgba(255,255,255,0.25)', objectFit: 'cover' }}
+                    />
+                    <div>
+                      <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1.2 }}>Pou Chen Corporation</div>
+                      <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.65)', fontWeight: 500 }}>Taichung, Taiwan</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Brands strip */}
+                <div style={{ borderRadius: '14px', overflow: 'hidden', border: '1px solid rgba(215,226,234,0.08)' }}>
+                  <div style={{ padding: '12px 20px 0', backgroundColor: '#111' }}>
+                    <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#666', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Brands Manufactured For</div>
+                  </div>
+                  <div style={{ backgroundColor: '#ffffff', padding: '16px 20px' }}>
+                    <img
+                      src="/pou-chen-brands.png"
+                      alt="Brand partners"
+                      style={{ width: '100%', objectFit: 'contain', display: 'block', maxHeight: '130px', mixBlendMode: 'multiply' }}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Virgin Voyages — client logo */}
+            {job.company === 'Blueed Technology LLC' && (
+              <div style={{ marginBottom: '28px' }}>
+                <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#888', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>Client</div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: '#fff', borderRadius: '12px', padding: '10px 20px' }}>
+                  <img
+                    src="/virgin-voyages-logo.png"
+                    alt="Virgin Voyages"
+                    style={{ height: '32px', objectFit: 'contain', display: 'block' }}
+                  />
+                </div>
+              </div>
+            )}
+
             {/* Role header */}
             <div style={{ marginBottom: '20px' }}>
               <div style={{ fontSize: '0.7rem', fontWeight: 700, color: job.color, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
@@ -89,9 +146,11 @@ export default function WorkExpPage() {
               <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 800, color: '#D7E2EA', margin: '0 0 4px', letterSpacing: '-0.02em' }}>
                 {job.role}
               </h2>
-              <p style={{ fontSize: '1rem', color: '#D7E2EA', opacity: 0.6, margin: 0, fontWeight: 500 }}>
-                {job.company} · {job.location}
-              </p>
+              {job.company !== 'Pou Chen Corporation' && (
+                <p style={{ fontSize: '1rem', color: '#D7E2EA', opacity: 0.6, margin: 0, fontWeight: 500 }}>
+                  {job.company} · {job.location}
+                </p>
+              )}
             </div>
 
             {/* Bullets */}

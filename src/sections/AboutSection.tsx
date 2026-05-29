@@ -1,6 +1,6 @@
 import FadeIn from '../components/FadeIn'
 import AnimatedText from '../components/AnimatedText'
-import ContactButton from '../components/ContactButton'
+
 
 const ABOUT_TEXT =
   "Master's student in CS at Asia University, Taiwan — MOE Scholarship Recipient, Ranked #2 in department, GPA 91.7%, co-authored 3 IEEE papers. AI Engineer Intern at Pou Chen Corporation building enterprise AI systems, LLM-powered workflows, and infrastructure automation. Previously at Blueed Technology (Virgin Voyages), Honest Design Co, and Asia University Big Data Lab. Driven by curiosity and systems thinking — building technology that is intelligent, reliable, and impactful."
@@ -93,7 +93,6 @@ export default function AboutSection() {
             } as React.CSSProperties}
           />
 
-          <ContactButton />
         </div>
       </div>
     </section>

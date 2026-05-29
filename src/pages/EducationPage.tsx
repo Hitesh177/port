@@ -18,6 +18,15 @@ export default function EducationPage() {
 
         {/* Entry 1 — Master's */}
         <div style={{ borderTop: '1px solid rgba(215,226,234,0.15)', paddingTop: '48px', marginBottom: '56px' }}>
+          {/* Campus banner */}
+          <div style={{ marginBottom: '28px', borderRadius: '16px', overflow: 'hidden', height: '159px' }}>
+            <img
+              src="/asia-university.png"
+              alt="Asia University campus"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', imageRendering: 'auto' }}
+            />
+          </div>
+
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
             <div>
               <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#5b6cff', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
@@ -54,7 +63,7 @@ export default function EducationPage() {
           </div>
 
           {/* Research areas */}
-          <div>
+          <div style={{ marginBottom: '36px' }}>
             <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#888', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>Research Areas</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
               {['Artificial Intelligence', 'Intelligent Systems', 'Machine Learning', 'Clustering Algorithms', 'Generative AI', 'Computer Vision'].map(area => (
@@ -64,10 +73,55 @@ export default function EducationPage() {
               ))}
             </div>
           </div>
+
+          {/* Publications — under Master's */}
+          <div>
+            <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#888', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '20px' }}>IEEE Publications</div>
+            {[
+              {
+                title: 'Deep Learning Applications in Embedded Systems and IoT Devices',
+                venue: 'IEEE 13th International Conference on Smart Grid (icSmartGrid) — 2025',
+                link: 'https://www.researchgate.net/publication/394190159_Deep_Learning_Applications_in_Embedded_Systems_and_IoT_Devices',
+              },
+              {
+                title: 'Adaptive Energy Management Systems for Smart Grids: A Hybrid Approach Using Machine Learning and IoT Integration',
+                venue: 'ResearchGate — 2025',
+                link: 'https://www.researchgate.net/publication/394590009_Adaptive_Energy_Management_Systems_for_Smart_Grids_A_Hybrid_Approach_Using_Machine_Learning_and_IoT_Integration',
+              },
+              {
+                title: 'AI-Enabled Optimization of Fractional Order PID Controllers for Robust Stability in All-Electric Naval Energy Systems',
+                venue: '2025 14th International Conference on Renewable Energy Research and Applications (ICRERA)',
+                link: null,
+              },
+            ].map((pub, i) => (
+              <div key={i} style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: i < 2 ? '1px solid rgba(215,226,234,0.08)' : 'none' }}>
+                {pub.link ? (
+                  <a href={pub.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#5b6cff', margin: '0 0 6px', lineHeight: 1.4, display: 'block', textDecoration: 'none' }}
+                    onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+                    onMouseLeave={e => (e.currentTarget.style.textDecoration = 'none')}
+                  >
+                    {pub.title} ↗
+                  </a>
+                ) : (
+                  <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#D7E2EA', margin: '0 0 6px', lineHeight: 1.4 }}>{pub.title}</p>
+                )}
+                <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>{pub.venue}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Entry 2 — Bachelor's */}
         <div style={{ borderTop: '1px solid rgba(215,226,234,0.15)', paddingTop: '48px', marginBottom: '56px' }}>
+          {/* University image */}
+          <div style={{ marginBottom: '28px', borderRadius: '16px', overflow: 'hidden' }}>
+            <img
+              src="/presidency-university.png"
+              alt="Presidency University"
+              style={{ width: '100%', maxHeight: '260px', objectFit: 'cover', display: 'block', borderRadius: '16px' }}
+            />
+          </div>
+
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
             <div>
               <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#5b6cff', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>
@@ -104,25 +158,6 @@ export default function EducationPage() {
           </div>
         </div>
 
-        {/* Publications */}
-        <div style={{ borderTop: '1px solid rgba(215,226,234,0.15)', paddingTop: '48px' }}>
-          <div style={{ fontSize: '0.7rem', fontWeight: 700, color: '#888', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '24px' }}>IEEE Publications</div>
-          {[
-            {
-              title: 'Deep Learning Applications in Embedded Systems and IoT Devices',
-              venue: 'IEEE 13th International Conference on Smart Grid (icSmartGrid) — 2025',
-            },
-            {
-              title: 'AI-Enabled Optimization of Fractional Order PID Controllers for Robust Stability in All-Electric Naval Energy Systems',
-              venue: '2025 14th International Conference on Renewable Energy Research and Applications (ICRERA)',
-            },
-          ].map((pub, i) => (
-            <div key={i} style={{ marginBottom: '24px', paddingBottom: '24px', borderBottom: i === 0 ? '1px solid rgba(215,226,234,0.08)' : 'none' }}>
-              <p style={{ fontSize: '1rem', fontWeight: 600, color: '#D7E2EA', margin: '0 0 6px', lineHeight: 1.4 }}>{pub.title}</p>
-              <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>{pub.venue}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   )
