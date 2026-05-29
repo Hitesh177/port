@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 
@@ -53,7 +53,7 @@ function EducationCard() {
       {/* MOE Badge */}
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: '#f0f4ff', borderRadius: '100px', padding: '6px 14px' }}>
         <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#5b6cff', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-          🎓 Taiwan MOE Scholarship Recipient
+          Taiwan MOE Scholarship Recipient
         </span>
       </div>
 
@@ -157,35 +157,43 @@ function WorkExpCard() {
 
 export default function ExperienceSection() {
   const [toggled, setToggled] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 640)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 640)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
   return (
-    <section id="experience" style={{ backgroundColor: '#f5f5f3', padding: '80px 24px' }}>
+    <section id="experience" style={{ backgroundColor: '#f5f5f3', padding: isMobile ? '48px 16px' : '80px 24px' }}>
       {/* Section title */}
-      <div style={{ maxWidth: '1100px', margin: '0 auto 48px' }}>
+      <div style={{ maxWidth: '1100px', margin: isMobile ? '0 auto 32px' : '0 auto 48px' }}>
         <h2
           className="font-black uppercase"
           style={{ fontSize: 'clamp(2rem, 6vw, 5rem)', color: '#0a0a0a', letterSpacing: '-0.03em', margin: 0 }}
         >
-          Experience
+          Education & Experience
         </h2>
       </div>
 
-      {/* Stacked card layout */}
+      {/* Card layout — row on desktop, column on mobile */}
       <div
         style={{
           maxWidth: '1100px',
           margin: '0 auto',
           display: 'flex',
-          alignItems: 'stretch',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'stretch' : 'stretch',
           position: 'relative',
           perspective: '1200px',
           gap: 0,
         }}
       >
-        {/* LEFT CARD — Education */}
+        {/* LEFT / TOP CARD — Education */}
         <motion.div
-          animate={{
+          animate={isMobile ? {} : {
             rotateY: toggled ? -18 : 0,
             x: toggled ? -12 : 0,
           }}
@@ -202,12 +210,14 @@ export default function ExperienceSection() {
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '28px',
-              padding: '36px',
-              height: '100%',
+              padding: isMobile ? '24px' : '36px',
+              height: isMobile ? 'auto' : '100%',
               boxShadow: '0 8px 40px rgba(0,0,0,0.1)',
-              minHeight: '420px',
+              minHeight: isMobile ? 'unset' : '420px',
               boxSizing: 'border-box',
               cursor: 'pointer',
+              borderBottomLeftRadius: isMobile ? 0 : '28px',
+              borderBottomRightRadius: isMobile ? 0 : '28px',
             }}
             onClick={() => navigate('/education')}
           >
@@ -215,50 +225,87 @@ export default function ExperienceSection() {
           </div>
         </motion.div>
 
-        {/* MIDDLE TOGGLE PANEL */}
-        <motion.div
-          onClick={() => setToggled(v => !v)}
-          animate={{
-            width: toggled ? 52 : 44,
-            backgroundColor: toggled ? '#0a0a0a' : '#5b6cff',
-          }}
-          transition={{ type: 'spring', stiffness: 200, damping: 30 }}
-          style={{
-            flexShrink: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: 3,
-            borderRadius: '0 12px 12px 0',
-            position: 'relative',
-          }}
-          whileHover={{ scaleY: 1.02 }}
-        >
-          <motion.span
-            key={toggled ? 'less' : 'read'}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+        {/* MIDDLE TOGGLE PANEL — vertical on desktop, horizontal on mobile */}
+        {isMobile ? (
+          <motion.button
+            onClick={() => setToggled(v => !v)}
+            animate={{ backgroundColor: toggled ? '#0a0a0a' : '#5b6cff' }}
             transition={{ duration: 0.2 }}
             style={{
-              writingMode: 'vertical-rl',
-              transform: 'rotate(180deg)',
-              color: '#ffffff',
-              fontWeight: 800,
-              letterSpacing: '0.15em',
-              fontSize: '0.65rem',
-              textTransform: 'uppercase',
-              userSelect: 'none',
-              whiteSpace: 'nowrap',
+              width: '100%',
+              padding: '14px',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              zIndex: 3,
+              position: 'relative',
             }}
           >
-            {toggled ? 'Read Less' : 'Click to Read'}
-          </motion.span>
-        </motion.div>
+            <motion.span
+              key={toggled ? 'less' : 'read'}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.2 }}
+              style={{
+                color: '#ffffff',
+                fontWeight: 800,
+                letterSpacing: '0.15em',
+                fontSize: '0.65rem',
+                textTransform: 'uppercase',
+                userSelect: 'none',
+              }}
+            >
+              {toggled ? 'Read Less ▲' : 'Click to Read ▼'}
+            </motion.span>
+          </motion.button>
+        ) : (
+          <motion.div
+            onClick={() => setToggled(v => !v)}
+            animate={{
+              width: toggled ? 52 : 44,
+              backgroundColor: toggled ? '#0a0a0a' : '#5b6cff',
+            }}
+            transition={{ type: 'spring', stiffness: 200, damping: 30 }}
+            style={{
+              flexShrink: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 3,
+              borderRadius: '0 12px 12px 0',
+              position: 'relative',
+            }}
+            whileHover={{ scaleY: 1.02 }}
+          >
+            <motion.span
+              key={toggled ? 'less' : 'read'}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.2 }}
+              style={{
+                writingMode: 'vertical-rl',
+                transform: 'rotate(180deg)',
+                color: '#ffffff',
+                fontWeight: 800,
+                letterSpacing: '0.15em',
+                fontSize: '0.65rem',
+                textTransform: 'uppercase',
+                userSelect: 'none',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {toggled ? 'Read Less' : 'Click to Read'}
+            </motion.span>
+          </motion.div>
+        )}
 
-        {/* RIGHT CARD — Work Experience */}
+        {/* RIGHT / BOTTOM CARD — Work Experience */}
         <motion.div
-          animate={{ x: toggled ? 8 : 0 }}
+          animate={isMobile ? {} : { x: toggled ? 8 : 0 }}
           transition={{ type: 'spring', stiffness: 180, damping: 28 }}
           style={{ flex: 1, zIndex: 2, position: 'relative' }}
           whileHover={{ y: -4, transition: { duration: 0.25 } }}
@@ -267,12 +314,14 @@ export default function ExperienceSection() {
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '28px',
-              padding: '36px',
-              height: '100%',
+              padding: isMobile ? '24px' : '36px',
+              height: isMobile ? 'auto' : '100%',
               boxShadow: '0 8px 40px rgba(0,0,0,0.1)',
-              minHeight: '420px',
+              minHeight: isMobile ? 'unset' : '420px',
               boxSizing: 'border-box',
               cursor: 'pointer',
+              borderTopLeftRadius: isMobile ? 0 : '28px',
+              borderTopRightRadius: isMobile ? 0 : '28px',
             }}
             onClick={() => navigate('/workexp')}
           >
@@ -295,10 +344,10 @@ export default function ExperienceSection() {
               style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '28px',
-                padding: '36px 40px',
+                padding: isMobile ? '24px' : '36px 40px',
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '40px',
+                gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                gap: isMobile ? '28px' : '40px',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
               }}
             >
