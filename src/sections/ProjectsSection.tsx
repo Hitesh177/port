@@ -31,6 +31,134 @@ const PROJECTS = [
     screenshot: '/project-phantom.png',
     slug: 'phantom',
   },
+  {
+    num: '04',
+    name: 'Mayur Indian Kitchen',
+    category: 'Restaurant Website · Taiwan',
+    tags: ['Brand Website', 'Restaurant', 'Multi-location'],
+    desc: 'A multi-location Indian restaurant and grocery brand serving regional recipes, tandoor dishes, biryani, vegetarian food, catering, and cultural experiences across Taiwan and Dubai since 2011.',
+    screenshot: '/project-mayur.png',
+    slug: 'mayur-indian-kitchen',
+    externalUrl: 'https://indianfoodtaiwan.com',
+    blocks: [
+      { label: 'Indian cuisine across Taiwan', bg: '#2b211d' },
+      { label: 'Catering & grocery', bg: '#3b2b20' },
+      { label: '14 kitchen locations', bg: '#242424' },
+      { label: 'Since 2011', bg: '#4a3025' },
+    ],
+  },
+  {
+    num: '05',
+    name: 'Baba Indian Restaurant',
+    category: 'Restaurant Website · Taichung',
+    tags: ['Brand Website', 'Restaurant', 'Reservations'],
+    desc: 'A restaurant experience for authentic North and South Indian food in Taichung, built around hand-ground spices, tandoori cooking, vegetarian options, and warm hospitality across two branches.',
+    screenshot: '/project-baba.png',
+    slug: 'baba-indian-restaurant',
+    externalUrl: 'https://babaindianfood.tw',
+    blocks: [
+      { label: 'Hand-ground spices', bg: '#3b2721' },
+      { label: 'Tandoori cooking', bg: '#5a3024' },
+      { label: 'Taichung · 2 branches', bg: '#2b2c25' },
+      { label: 'Reserve & order online', bg: '#4a3b24' },
+    ],
+  },
+  {
+    num: '06',
+    name: 'Sree India Palace',
+    category: 'Restaurant Website · Taichung',
+    tags: ['Brand Website', 'Hyderabadi', 'Hospitality'],
+    desc: 'A royal dining identity rooted in Hyderabad: Mughal heritage, Hyderabadi dum biryani, curries, tandoor dishes, weekly specials, and an elevated guest experience in Taichung’s West District.',
+    screenshot: '/project-sree.png',
+    slug: 'sree-india-palace',
+    externalUrl: 'https://sreeindiapalace.com',
+    blocks: [
+      { label: 'Hyderabadi cuisine', bg: '#33251e' },
+      { label: 'Mughal heritage', bg: '#4d3220' },
+      { label: '100+ authentic dishes', bg: '#2d2922' },
+      { label: 'West District · Taichung', bg: '#58412b' },
+    ],
+  },
+  {
+    num: '07',
+    name: 'Bhabhi Indian Restaurant',
+    category: 'Restaurant Website · Hsinchu',
+    tags: ['Brand Website', 'Storytelling', 'Community'],
+    desc: 'A story-led restaurant website for authentic North Indian food in Hsinchu, connecting Odisha roots, slow-cooked classics, fresh masala, communal buffet dinners, and corporate catering near the Science Park.',
+    screenshot: '/project-bhabhi.png',
+    slug: 'bhabhi-indian-restaurant',
+    externalUrl: 'https://bhabhiindianfood.com',
+    blocks: [
+      { label: 'Odisha → Hsinchu', bg: '#2f2820' },
+      { label: 'Slow-cooked classics', bg: '#4c3025' },
+      { label: 'Fortnightly community buffet', bg: '#29322b' },
+      { label: 'Catering for 10–40', bg: '#493c28' },
+    ],
+  },
+  {
+    num: '08',
+    name: 'Wonderwood',
+    category: 'Experience Website · Beipu',
+    tags: ['Brand Website', 'Experiences', 'Community'],
+    desc: 'A home for a two-hectare forest recreation center near Beipu, Taiwan, featuring immersive outdoor puzzle adventures, scavenger hunts, workshops, music, nature exploration, and community gatherings.',
+    screenshot: '/project-wonderwood.png',
+    slug: 'wonderwood',
+    externalUrl: 'https://wonderwood.com.tw',
+    blocks: [
+      { label: 'Two-hectare forest', bg: '#233028' },
+      { label: 'Immersive puzzle adventures', bg: '#2d3b2d' },
+      { label: 'Workshops & live music', bg: '#3c3525' },
+      { label: 'Beipu · Hsinchu County', bg: '#26352f' },
+    ],
+  },
+  {
+    num: '09',
+    name: "Don't Be A Wage Slave",
+    category: 'Editorial Website · Taiwan',
+    tags: ['Editorial', 'Podcast', 'Books'],
+    desc: 'An editorial platform for critical thinking about work, freedom, and the architecture of modern life, bringing together essays, podcasts, books, pilgrimage paths, and a long-running weekly manifesto.',
+    screenshot: '/project-dbawageslave.png',
+    slug: 'dont-be-a-wage-slave',
+    externalUrl: 'https://dbawageslave.com',
+    blocks: [
+      { label: '600+ essays', bg: '#252525' },
+      { label: 'Life, death & freedom', bg: '#342b25' },
+      { label: 'Podcast & multimedia', bg: '#292d31' },
+      { label: 'Based in Taichung', bg: '#3b3328' },
+    ],
+  },
+  {
+    num: '10',
+    name: 'Mayur International Kitchen Dubai',
+    category: 'Restaurant Website · Dubai',
+    tags: ['Brand Website', 'Halal Dining', 'International'],
+    desc: 'An all-day international kitchen in Business Bay, Dubai, bringing Chef Mayur’s Indian food heritage together with biryani, charcoal grills, South Indian breakfast, vegetarian dishes, and family dining near Burj Khalifa.',
+    screenshot: '/project-mayur-dubai.png',
+    slug: 'mayur-international-kitchen-dubai',
+    externalUrl: 'https://www.mayurdubai.com/',
+    blocks: [
+      { label: '100% halal certified', bg: '#2d2922' },
+      { label: 'Breakfast to late dinner', bg: '#403125' },
+      { label: 'Business Bay · Dubai', bg: '#25302e' },
+      { label: '15 branches worldwide', bg: '#4a3926' },
+    ],
+  },
+  {
+    num: '11',
+    name: 'ITG Soft Games Taiwan',
+    category: 'Game Studio · Taiwan',
+    tags: ['Indie Games', 'NES Homebrew', 'Retro'],
+    desc: 'A retro game studio and publisher focused on original homebrew games, Famicom development, chiptune culture, and hardware for classic gaming machines from Taiwan.',
+    screenshot: '/project-itg-soft.png',
+    slug: 'itg-soft-games-taiwan',
+    externalUrl: 'https://retro-ai-six.vercel.app/',
+    blocks: [
+      { label: 'Independent Taiwan games', bg: '#2d2922' },
+      { label: 'Famicom & NES homebrew', bg: '#33302a' },
+      { label: 'Chiptune culture', bg: '#25302e' },
+      { label: 'Games, hardware & publishing', bg: '#4a3926' },
+    ],
+  },
 ]
 
 type Project = {
@@ -41,6 +169,7 @@ type Project = {
   desc: string
   screenshot: string | null
   slug: string
+  externalUrl?: string
   blocks?: { label: string; bg: string }[]
 }
 
@@ -71,7 +200,7 @@ function ProjectCard({ project, index, containerProgress }: ProjectCardProps) {
           position: 'relative',
           cursor: 'pointer',
         }}
-        onClick={() => navigate(`/projects/${project.slug}`)}
+        onClick={() => project.externalUrl ? window.open(project.externalUrl, '_blank', 'noopener,noreferrer') : navigate(`/projects/${project.slug}`)}
         whileHover={{ borderColor: 'rgba(91,108,255,0.8)', transition: { duration: 0.2 } }}
       >
         {/* Top row */}

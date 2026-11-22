@@ -88,7 +88,7 @@ function WorkExpCard() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#5b6cff', flexShrink: 0 }} />
         <span style={{ fontSize: '0.75rem', color: '#5b6cff', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-          Current Role
+          Nike Taiwan
         </span>
       </div>
 

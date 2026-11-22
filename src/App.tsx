@@ -5,7 +5,6 @@ import AboutSection from './sections/AboutSection'
 import ServicesSection from './sections/ServicesSection'
 import ExperienceSection from './sections/ExperienceSection'
 import ProjectsSection from './sections/ProjectsSection'
-import WhyTaiwanSection from './sections/WhyTaiwanSection'
 import EducationPage from './pages/EducationPage'
 import WorkExpPage from './pages/WorkExpPage'
 import ComingSoonPage from './pages/ComingSoonPage'
@@ -22,7 +21,6 @@ export default function App() {
           <AboutSection />
           <ServicesSection />
           <ExperienceSection />
-          <WhyTaiwanSection />
           <ProjectsSection />
         </div>
       } />
